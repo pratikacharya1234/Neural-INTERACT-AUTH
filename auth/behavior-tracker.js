@@ -79,7 +79,6 @@ function setupEventListeners(){
     canvas.addEventListener('mousedown', onMouseDown);
     canvas.addEventListener('mousemove', onMouseMove);
     canvas.addEventListener('mouseup', onMouseUp);
-    canvas.addEventListener('mouseout', onMouseOut);
 }
 
 
@@ -97,3 +96,24 @@ function onMouseDown(e){
         }
     }
 }
+
+
+//move shape with mouse
+function onMouseMove(e){
+    if(!sekectedShape) return;
+
+    const {x, y} = getMousePos(e);
+    selectedShape.x = x - offsetX;
+    selectedShape.y = y - offsetY;
+
+    drawAll();
+}
+
+//drop shape
+function onMouseUp(e){
+    if(selectShape){
+        selectShape.isDrawing = false;
+        selectShape = null;
+    }
+}
+
