@@ -117,3 +117,27 @@ function onMouseUp(e){
     }
 }
 
+
+//utility check if point is inside a shape
+function isInsideShape(x,y,shape){
+    const dx = x- shape.x;
+    const dy = y - shape.y;
+    const distacne= Math.sqrt(dx * dx + dy * dy);
+
+
+    switch(shape.shape){
+        case 'circle':
+            return distacne <= shape.size /2;
+
+        case 'square':
+        case ' triangle':
+            return(
+                x >= shape.x - shape.size / 2 &&
+                x <= shape.x + shape.size / 2 &&
+                y >= shape.y - shape.size / 2 &&
+                y <= shape.y + shape.size / 2
+            );
+            default:
+            return false;
+    }
+}
