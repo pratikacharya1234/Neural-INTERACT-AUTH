@@ -1,0 +1,175 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container */
+  .container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+  }
+  
+  /* Heading */
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  /* Auth Form */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  
+  .auth-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .auth-form button {
+    padding: 10px;
+    background-color: #0077ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .auth-form button:hover {
+    background-color: #005fd6;
+  }
+  
+  /* Canvas Area */
+  .canvas-area {
+    margin: 20px 0;
+  }
+  
+  #challenge-canvas {
+    border: 2px dashed #0077ff;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+  }
+  
+  /* Message Area */
+  .message-area {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #007700;
+    background-color: #e7ffe7;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Secure Area */
+  .secure-area {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f8ff;
+    border: 2px solid #0077ff;
+    border-radius: 12px;
+  }
+  
+  .secure-area h2 {
+    color: #2b2b2b;
+  }
+  
+  #logout-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff4b5c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  #logout-btn:hover {
+    background-color: #d93649;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Loader Overlay */
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    display: none; 
+}
+  
+  .loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #0077ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Mobile Optimization */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .auth-form input,
+    .auth-form button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    #challenge-canvas {
+      width: 100%;
+      height: 300px;
+    }
+  
+    .secure-area {
+      font-size: 14px;
+    }
+  }
+  

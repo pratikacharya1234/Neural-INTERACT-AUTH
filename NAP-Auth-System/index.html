@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Neural INTERACT-AUTH - A neural network-based authentication system." />
+  <meta name="keywords" content="Neural Network, Authentication, INTERACT-AUTH, NAP-Auth-System" />
+  <meta name="author" content="Pratik Acharya" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <title>Neural INTERACT-AUTH</title>
+</head>
+<body>
+  <section class="container">
+    <h1>Neural INTERACT-AUTH</h1>
+
+    <div class="auth-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter Username" required />
+      <button id="register-btn">Register</button>
+      <button id="login-btn">Login</button>
+    </div>
+
+    <div class="canvas-area">
+      <canvas id="challenge-canvas" width="600" height="400"></canvas>
+    </div>
+
+    <div id="loader-overlay">
+        <div class="loader"></div>
+    </div>
+      
+    <div class="message-area" id="message-area"></div>
+
+    <div class="secure-area" id="secure-area" style="display: none;">
+      <h2>Welcome to the Secure Area!</h2>
+      <p>This content is only visible after successful authentication.</p>
+      <button id="logout-btn">Logout</button>
+    </div>
+  </section>
+
+  <script src="neural-auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</body>
+</html>
