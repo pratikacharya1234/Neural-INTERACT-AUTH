@@ -39,3 +39,61 @@ export function generateChallange(count = 5){
     drawAll();
     return challangeShapes;
 }
+
+
+//function to  draw all shapes
+function drawAll(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    challangeShapes.forEach(drawShape);
+}
+
+//function to draw a single shape
+function drawShape(shape){
+    ctx.fillStyle = shape.color;
+
+    switch(shape.shape){
+        case 'circle':
+            ctx.beginPath();
+            ctx.arc(shape.x, shape.y, shape.size/2,  0, Math.PI * 2);
+            ctx.fill();
+            break;
+
+        case 'square':
+            ctx.fillRect(shape.x - shape.size / 2, shape.y - shape.size / 2, shape.size, shape.size);
+            break;
+
+        case 'triangle':
+            ctx.beginPath();
+            ctx.moveTo(shape.x, shape.y - shape.size / 2);
+            ctx.lineTo(shape.x + shape.size / 2, shape.y + shape.size / 2);
+            ctx.lineTo(shape.x - shape.size / 2, shape.y + shape.size / 2);
+            ctx.closePath();
+            ctx.fill();
+            break;
+    }
+}
+
+
+//mouse interaction functions
+function setupEventListeners(){
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseup', onMouseUp);
+    canvas.addEventListener('mouseout', onMouseOut);
+}
+
+
+//select shape if mouse is down on it
+function onMouseDown(e){
+    const {x, y} = getMousePos(e);
+
+    for ( let shape of challangeShapes){
+        if (isInsideShape(x, y, shape)){
+            selectShape = shape;
+            offsetX = x - shape.x;
+            offsetY = y - shape.y;
+            shape.isDrawing = true;
+            break;
+        }
+    }
+}
