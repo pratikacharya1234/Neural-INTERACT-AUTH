@@ -1,159 +1,115 @@
-# 🧠 NAP Auth
+# 🧠 nap-auth
 
-> A lightweight, customizable behavioral authentication Web Component that authenticates users based on how they interact with a drag-and-drop challenge using mouse behavior and neural pattern recognition.
+> A lightweight behavioral authentication Web Component that uses neural interaction patterns — identify users based on how they interact, not just what they do.
 
 ---
 
 ## 📦 Installation
 
-Install via npm:
-
 ```bash
 npm install nap-auth
-```
-
-Or include the built version manually:
-
-```html
-<script type="module" src="./dist/nap-auth.mjs"></script>
 ```
 
 ---
 
 ## 🚀 Usage
 
-### 🔐 Basic HTML Example
+### 1. Import the Component
+```js
+import 'nap-auth';
+```
+
+### 2. Add to HTML
 ```html
 <nap-auth username="demo" mode="register"></nap-auth>
 ```
 
-### 🔁 Toggle Between Register/Login
-```html
-<select id="mode">
-  <option value="register">Register</option>
-  <option value="login">Login</option>
-</select>
-<nap-auth id="auth" username="demo" mode="register"></nap-auth>
+### 3. Listen for Events
+```js
+document.querySelector('nap-auth').addEventListener('auth-success', e => {
+  console.log('✅ Auth Success:', e.detail);
+});
 
-<script type="module">
-  import 'nap-auth';
+document.querySelector('nap-auth').addEventListener('auth-fail', e => {
+  console.log('❌ Auth Fail:', e.detail);
+});
 
-  const auth = document.getElementById('auth');
-  document.getElementById('mode').addEventListener('change', e => {
-    auth.setAttribute('mode', e.target.value);
-  });
-
-  auth.addEventListener('auth-success', e => console.log('✅ Success:', e.detail));
-  auth.addEventListener('auth-fail', e => console.log('❌ Fail:', e.detail));
-  auth.addEventListener('auth-progress', e => console.log('⏳ Progress:', e.detail));
-</script>
+document.querySelector('nap-auth').addEventListener('auth-progress', e => {
+  console.log('⏳ Training Progress:', e.detail);
+});
 ```
 
 ---
 
-## ✨ Features
-- ✅ Fully self-contained Web Component
-- 🎯 Tracks unconscious behavior:
-  - Mouse movement speed
-  - Hesitations (pauses)
-  - Click pressure (if supported)
-  - Time between interactions
-- 🧠 Built-in neural network (no external AI libs)
-- 🔐 Continuous and passive authentication
-- 📡 Emits customizable events
+## 🧠 Features
+
+- ✔️ Built with **Vanilla JS** + **Web Components API**
+- 🖱️ Tracks user behavior (mouse speed, hesitations, interaction rhythm)
+- 🧬 Simple neural network built-in
+- 🔐 No passwords, no biometrics — just how you behave
+- 🎯 Emits standard events: `auth-success`, `auth-fail`, `auth-progress`
 
 ---
 
-## 🔍 Events
-- `auth-success` — fired when authentication is successful
-- `auth-fail` — fired when behavior does not match
-- `auth-progress` — registration mode, shows training progress
+## ⚙️ Attributes
+
+| Attribute | Type     | Description                                |
+|----------|----------|--------------------------------------------|
+| `username` | `string` | Unique ID for the user                     |
+| `mode`     | `string` | `register` to train, `login` to authenticate |
 
 ---
 
-## 🧪 How It Works
-1. On registration, users complete a behavioral drag-and-drop challenge 5 times.
-2. The system collects timing, movement, and hesitation metrics.
-3. A neural network model is trained on the fly.
-4. On login, new interaction is scored and compared to the saved profile.
-
-> This method resists spoofing because it relies on how users behave, not what they input.
-
----
-
-## 🧱 File Structure
+## 🧱 Project Structure
 ```
 nap-auth/
 ├── src/
-│   ├── nap-auth.js                # Main component class
-│   └── auth/
-│       ├── behavior-tracker.js   # Tracks real-time interaction
-│       ├── feature-extractor.js  # Generates feature vectors
-│       ├── neural-network.js     # Simple backprop-based NN
+│   ├── nap-auth.js              # <nap-auth> component
+│   └── auth/                    # Neural engine + behavior tracking
+│       ├── behavior-tracker.js
+│       ├── feature-extractor.js
+│       ├── neural-network.js
+│       └── anti-spoofing.js
 ├── dist/
-│   └── nap-auth.mjs              # Compiled output for distribution
-├── public/index.html             # Demo/testing entry point
+│   └── nap-auth.mjs             # Compiled output (ES module)
+├── vite.config.js               # Vite build config
 ├── package.json
-├── vite.config.js
-├── README.md
+└── README.md
 ```
 
 ---
 
-## 🛠️ Technologies Used
-- **Vanilla JavaScript** (framework-free)
-- **Web Components API** (custom elements, Shadow DOM)
-- **Canvas API** (UI challenge interface)
-- **Custom-built neural network** (no TensorFlow)
-- **Vite** (build + preview)
+## 📜 License
+
+MIT © [Pratik Acharya](https://github.com/pratikacharya1234)
 
 ---
 
-## 🧑‍💻 How to Customize
-You can easily modify the system for different use cases:
+## 🧪 Development
 
-| What to Change                     | Where                                          |
-|-----------------------------------|-------------------------------------------------|
-| Confidence Threshold              | `nap-auth.js` → `confidence >= 0.8`            |
-| Training Rounds                   | `nap-auth.js` → default is 5 samples           |
-| Challenge Shapes                  | `behavior-tracker.js` → `generateChallenge()`  |
-| Neural Net Size                   | `neural-network.js` → hidden layer config      |
-| UI Design                         | Inside `nap-auth.js` Shadow DOM template       |
-
-You can also fork and export it as a React/Vue wrapper if desired.
-
----
-
-## 🧪 Run Locally
 ```bash
+git clone https://github.com/yourusername/nap-auth
+cd nap-auth
 npm install
-npm run dev      # development mode
-npm run build    # compile Web Component to dist/
-npm run preview  # test production output
-```
-
-To test the output:
-```bash
-cd public
-vite preview
-```
-
-Then visit http://localhost:4173 or the printed URL.
-
----
-
-## 🧰 Build and Publish (optional)
-```bash
 npm run build
-npm publish --access public
 ```
-Ensure `package.json` points to `dist/nap-auth.mjs` as the module entry.
+
+> For local preview testing:
+```bash
+npm run preview
+```
 
 ---
 
-## 📄 License
-MIT License
+## 📣 Contributing
 
-Built with ❤️ by [Pratik Acharya](https://github.com/pratikacharya1234)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
 
-> Feel free to open issues, suggest improvements, or fork this project!
+---
+
+## 📌 Related Tags
+`web-component` `neural-auth` `passwordless` `behavioral-auth` `biometrics` `custom-elements`
+
+---
+
+Made with ❤️ by [@pratikacharya1234](https://github.com/pratikacharya1234)
