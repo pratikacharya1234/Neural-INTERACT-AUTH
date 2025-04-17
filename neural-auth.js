@@ -1,4 +1,4 @@
-// Import canvas + tracking functions
+// Import canvas and  tracking functions
 import {initCanvas,generateChallenge,resetBehaviorData,finalizeBehaviorData} from './auth/behavior-tracker.js';
   
   let behaviorSample = null;
