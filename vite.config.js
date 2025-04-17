@@ -9,11 +9,13 @@ export default defineConfig({
       fileName: 'nap-auth',
       formats: ['es'],
     },
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
-      external: [],
+      external: [], 
       output: {
-        globals: {},
-      },
-    },
-  },
+        globals: {}
+      }
+    }
+  }
 });
