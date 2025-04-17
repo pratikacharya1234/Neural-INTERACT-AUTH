@@ -141,3 +141,13 @@ function isInsideShape(x,y,shape){
             return false;
     }
 }
+
+
+//utility mouse position relative to canvas
+function getMousePos(e){
+    const rect = canvas.getBoundingClientRect();
+    return{
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+    }
+}
