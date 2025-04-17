@@ -16,8 +16,8 @@ let lastMoveTimestamp = null;
 let challengeStartTime = null;
 
 // Public: Setup canvas and start tracking
-export function initCanvas(canvasId = 'challenge-canvas') {
-  canvas = document.getElementById(canvasId);
+export function initCanvas(canvasElement) {
+  canvas = canvasElement;
   ctx = canvas.getContext('2d');
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;

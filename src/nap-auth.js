@@ -26,11 +26,15 @@ export class NapAuth extends HTMLElement {
     this.canvas = this.shadowRoot.querySelector('#challenge');
     this.submitBtn = this.shadowRoot.querySelector('#submit');
 
-    initCanvas(this.canvas.id);
-    generateChallenge();
-    resetBehaviorData();
+    if (this.canvas && this.submitBtn) {
+      initCanvas(this.canvas); // Safe initialization
+      generateChallenge();
+      resetBehaviorData();
 
-    this.submitBtn.addEventListener('click', () => this.finish());
+      this.submitBtn.addEventListener('click', () => this.finish());
+    } else {
+      console.error("Canvas or submit button not found in NAP Auth component.");
+    }
   }
 
   finish() {

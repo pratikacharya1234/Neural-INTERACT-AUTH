@@ -1,13 +1,16 @@
 {
     "name": "nap-auth",
     "version": "1.0.0",
-    "description": "A lightweight behavioral authentication web component based on neural patterns.",
-    "main": "dist/nap-auth.js",
-    "module": "dist/nap-auth.js",
+    "description": "A lightweight behavioral authentication web component based on neural interaction patterns.",
+    "main": "dist/nap-auth.mjs",
+    "module": "dist/nap-auth.mjs",
     "exports": {
-      ".": "./dist/nap-auth.js"
+      ".": "./dist/nap-auth.mjs"
     },
-    "types": "types/index.d.ts",
+    "files": [
+      "dist"
+    ],
+    "type": "module",
     "scripts": {
       "dev": "vite",
       "build": "vite build",
@@ -19,7 +22,8 @@
       "web-component",
       "javascript",
       "security",
-      "biometrics"
+      "biometrics",
+      "passwordless"
     ],
     "author": "Pratik Acharya",
     "license": "MIT",
