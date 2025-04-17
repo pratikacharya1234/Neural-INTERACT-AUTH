@@ -27,6 +27,9 @@ export function initCanvas(canvasId = 'challenge-canvas') {
 
 // Public: Generate randomized challenge
 export function generateChallenge(count = 5) {
+  canvas.width = canvas.offsetWidth || 600;
+  canvas.height = canvas.offsetHeight || 400;
+
   const shapes = ['circle', 'square', 'triangle'];
   const colors = ['#ff4b5c', '#0077ff', '#2ecc71', '#f39c12', '#8e44ad'];
 
@@ -174,7 +177,6 @@ function getMousePos(e) {
     y: e.clientY - rect.top,
   };
 }
-
 
 // Behavioral Data Tracking
 function trackMouseMove(e) {
