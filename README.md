@@ -65,10 +65,12 @@ document.querySelector('nap-auth').addEventListener('auth-progress', e => {
 nap-auth/
 ├── src/
 │   ├── nap-auth.js              # <nap-auth> component
+│   ├── neutral-auth.js              
 │   └── auth/                    # Neural engine + behavior tracking
 │       ├── behavior-tracker.js
-│       ├── feature-extractor.js
 │       ├── neural-network.js
+│       ├── feature-extractor.js
+│       ├── authentication.js
 │       └── anti-spoofing.js
 ├── dist/
 │   └── nap-auth.mjs             # Compiled output (ES module)
