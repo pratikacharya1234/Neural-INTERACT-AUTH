@@ -1,0 +1,25 @@
+# 💡 NAP Auth – .gitignore
+
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs and temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode/
+.idea/
+*.swp
+
+# Environment files
+.env
+.env.*
