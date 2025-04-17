@@ -1,5 +1,8 @@
-// Import canvas and  tracking functions
+// Import canvas and tracking functions
 import {initCanvas,generateChallenge,resetBehaviorData,finalizeBehaviorData} from './auth/behavior-tracker.js';
+  
+// Import feature extractor function 
+import { extractFeatures } from './auth/feature-extractor.js';
   
   let behaviorSample = null;
   
@@ -11,9 +14,12 @@ import {initCanvas,generateChallenge,resetBehaviorData,finalizeBehaviorData} fro
     resetBehaviorData(); 
   });
   
-  //Call this function when the user finishes the challenge
+  // ✅ Call this when user completes the challenge
   function endChallenge() {
     behaviorSample = finalizeBehaviorData();
-    console.log('✅ Behavior data collected:', behaviorSample);
+    const featureVector = extractFeatures(behaviorSample);
+    console.log('🧠 Feature vector:', featureVector);
+  
+    // TODO: Send featureVector to my neural network model for scoring
   }
   
