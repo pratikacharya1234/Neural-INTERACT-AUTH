@@ -14,23 +14,35 @@
   <section class="container">
     <h1>Neural INTERACT-AUTH</h1>
 
-    <div class="auth-form">
-      <label for="username">Username:</label>
-      <input type="text" id="username" placeholder="Enter Username" required />
-      <button id="register-btn">Register</button>
-      <button id="login-btn">Login</button>
+    <!--  LOGIN CONTAINER -->
+    <div id="login-container">
+      <div class="auth-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter Username" required />
+        <button id="register-btn">Register</button>
+        <button id="login-btn">Login</button>
+      </div>
     </div>
 
-    <div class="canvas-area">
-      <canvas id="challenge-canvas" width="600" height="400"></canvas>
+    <!--  CHALLENGE CONTAINER -->
+    <div id="challenge-container" style="display: none;">
+      <div class="canvas-area">
+        <p>Arrange the shapes to continue:</p>
+        <canvas id="challenge-canvas" width="600" height="400"></canvas>
+        <br />
+        <button onclick="endChallenge()">Submit Challenge</button>
+      </div>
     </div>
 
-    <div id="loader-overlay">
-        <div class="loader"></div>
+    <!--  LOADER -->
+    <div id="loader-overlay" style="display: none;">
+      <div class="loader"></div>
     </div>
-      
+
+    <!--  MESSAGE AREA -->
     <div class="message-area" id="message-area"></div>
 
+    <!-- SECURE AREA -->
     <div class="secure-area" id="secure-area" style="display: none;">
       <h2>Welcome to the Secure Area!</h2>
       <p>This content is only visible after successful authentication.</p>
