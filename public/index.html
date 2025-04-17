@@ -16,7 +16,7 @@
   <nap-auth id="auth-box" username="demo" mode="register"></nap-auth>
 
   <script type="module">
-    import '/nap-auth.mjs';
+    import '/src/nap-auth.js'; 
 
     const auth = document.getElementById('auth-box');
     const modeSwitcher = document.getElementById('mode');
@@ -25,9 +25,9 @@
       auth.setAttribute('mode', e.target.value);
     });
 
-    auth.addEventListener('auth-success', e => console.log(" SUCCESS:", e.detail));
-    auth.addEventListener('auth-fail', e => console.log(" FAIL:", e.detail));
-    auth.addEventListener('auth-progress', e => console.log(" PROGRESS:", e.detail));
+    auth.addEventListener('auth-success', e => console.log("✅ SUCCESS:", e.detail));
+    auth.addEventListener('auth-fail', e => console.log("❌ FAIL:", e.detail));
+    auth.addEventListener('auth-progress', e => console.log("⏳ PROGRESS:", e.detail));
   </script>
 </body>
 </html>
