@@ -1,6 +1,6 @@
 # 🧠 nap-auth
 
-> A lightweight behavioral authentication Web Component that uses neural interaction patterns — identify users based on how they interact, not just what they do.
+> A lightweight behavioral authentication Web Component that uses neural interaction patterns  identify users based on how they interact, not just what they do.
 
 ---
 
